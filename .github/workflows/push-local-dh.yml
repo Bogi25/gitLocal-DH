@@ -19,11 +19,19 @@ jobs:
       id: prep
       run: echo "UNIQUE_TAG=$(date +%s)" >> $GITHUB_ENV
 
-    - name: Log in to DockerHub
+    - name: Log in to Registry PHP-one
       uses: docker/login-action@v1
       with:
+        registry: registry.local:5000
         username: ${{ secrets.DOCKER_USERNAME_LOCAL }}
-        password: ${{ secrets.DOCKER_PASSWORD_LOCAL }}     
+        password: ${{ secrets.DOCKER_PASSWORD_LOCAL }}
+        
+    - name: Log in to Registry Node-t
+      uses: docker/login-action@v1
+      with:
+         registry: registry.local:5100
+         username: ${{ secrets.DOCKER_USERNAME_LOCAL }}
+         password: ${{ secrets.DOCKER_PASSWORD_LOCAL }}
 
     - name: Build the laravel-dock-php-one
       run: 
