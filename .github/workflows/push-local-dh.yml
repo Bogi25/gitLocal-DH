@@ -43,7 +43,7 @@ jobs:
 
     - name: Build the laravel-dock-node-t
       run: 
-        docker build -t registry.local:5100/laravel-dock-node-t${{ env.UNIQUE_TAG }} .
+        docker build -t registry.local:5100/laravel-dock-node-t:${{ env.UNIQUE_TAG }} .
     
     - name: Push the laravel-dock-node-t
       run: 
