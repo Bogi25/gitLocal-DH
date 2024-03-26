@@ -1,0 +1,87 @@
+version: '3.8'
+networks:
+
+  localnet:
+    name: localnet
+    driver: bridge
+
+services:
+  
+  php-one:
+    image: bogi2/laravel-dock-php-one:v1.0
+    container_name: phpTest
+    #restart: unless-stopped
+    volumes:
+      - type: volume
+        source: lavareproject
+        target: /var/www/boilerplate
+      - nginx_data:/var/www/nginx
+    depends_on:
+      - sql-t
+      - node-t
+    networks:
+      - localnet
+    environment:
+      DB_HOST: mysqlTest
+      DB_PORT: 3306
+      DB_DATABASE: laravel_db
+      DB_USERNAME: bogi
+      DB_PASSWORD: 1234
+      MYSQL_ROOT_PASSWORD: superPass
+    command: ["/bin/bash", "-c", "/var/www/La_str.sh"]
+
+
+  nginx-t:
+    image: nginx:1.25.4
+    container_name: nginxTest
+    # restart: unless-stopped
+    ports:
+      - '8080:80'
+    networks:
+      - localnet
+    depends_on:
+      - php-one
+    volumes:
+      - nginx_data:/etc/nginx/conf.d
+      - type: volume
+        source: lavareproject
+        target: /var/www/boilerplate
+      # - type: bind
+      #   source: ./boilerplate/storage/logs
+      #   target: /var/www/boilerplate/storage/logs
+      #   bind:
+      #     propagation: rshared
+
+  sql-t:
+    image: mysql:latest
+    container_name: mysqlTest
+    #restart: unless-stopped
+    networks:
+      - localnet
+    environment:
+      MYSQL_DATABASE: laravel_db
+      MYSQL_USER: bogi
+      MYSQL_PASSWORD: 1234
+      MYSQL_ROOT_PASSWORD: superPass
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - type: volume
+        source: lavareproject
+        target: /var/www/boilerplate
+      
+  node-t:
+    image: bogi2/laravel-dock-node-t:v1.0
+    #restart: unless-stopped
+    container_name: nodeTest
+    networks:
+      - localnet
+    command: ["/bin/bash", "-c", "./node-apd.sh"]
+    volumes:
+      - type: volume
+        source: lavareproject
+        target: /var/www/boilerplate
+    
+volumes:
+   lavareproject:
+   nginx_data:
+
