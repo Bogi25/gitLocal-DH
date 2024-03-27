@@ -12,6 +12,7 @@ git clone --recurse-submodules https://github.com/Bogi25/gitLocal-DH.git
 В проекті збирається два докер зліпки тому на локальному Registery треба підготувати два репозиторію
 <DOCKER_USERNAME_LOCAL>/laravel-dock-php-one
 <DOCKER_USERNAME_LOCAL>/laravel-dock-node-t
+Це реалізовано за допомогою проекту https://github.com/Bogi25/registryme.
 
 
 Для відпривки в локальний Registery використано секрети DOCKER_USERNAME_LOCAL та DOCKER_PASSWORD_LOCAL які були додані в GitHub.
