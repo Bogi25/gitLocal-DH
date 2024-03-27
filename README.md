@@ -4,16 +4,16 @@
 Скачуємо проект, обов'язково з флагом --recurse-submodules для скачування доданного сабмодуля.
 git clone --recurse-submodules https://github.com/Bogi25/gitLocal-DH.git
 
-Встановлюємо Git Runner за стандартною інструкцією і запускаємо.
+Додайте Git Runner в GitHub Settings > Actions > Runners >new self-hosted runnerз а стандартною інструкцією та запустіть.
 
-Заходимо в папку з проектом cd gitLocal-DH
-Запускаємо docker compose up
 
 В проекті збирається два докер зліпки тому на локальному Registery треба підготувати два репозиторію
 <DOCKER_USERNAME_LOCAL>/laravel-dock-php-one
 <DOCKER_USERNAME_LOCAL>/laravel-dock-node-t
 Це реалізовано за допомогою проекту https://github.com/Bogi25/registryme.
 
+Заходимо в папку з проектом cd gitLocal-DH
+Запускаємо docker compose up
 
 Для відпривки в локальний Registery використано секрети DOCKER_USERNAME_LOCAL та DOCKER_PASSWORD_LOCAL які були додані в GitHub.
 Опис знаходиться в файлі .github/workflows/push-local-dh.yml

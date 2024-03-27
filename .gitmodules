@@ -1,3 +1,6 @@
 [submodule "laravel-boilerplate"]
 	path = laravel-boilerplate
 	url = https://github.com/rappasoft/laravel-boilerplate.git
+[submodule "registryme"]
+	path = registryme
+	url = https://github.com/Bogi25/registryme.git
