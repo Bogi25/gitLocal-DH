@@ -12,6 +12,13 @@ git clone --recurse-submodules https://github.com/Bogi25/gitLocal-DH.git
 <DOCKER_USERNAME_LOCAL>/laravel-dock-node-t
 Це реалізовано за допомогою проекту https://github.com/Bogi25/registryme.
 
+Скрипт потребує прав адміністратора. Створює усі необхідні папки. Додає запис 127.0.0.1 registry.local в /etc/hosts. Записує та шифрує логін та пароль, за допомогою htpasswd, секретів DOCKER_USERNAME_LOCAL та DOCKER_PASSWORD_LOCAL які були додані в GitHub. Створює два самопідписані сертифікати. Та додає їх до Docker щоб той їм довіряв.
+
+У скрипті інтерактивно треба буде ввести три параметри: логін - який є вашим DOCKER_USERNAME_LOCAL доданим до секрету в GitHub. -пароль який є вашим паролем доданним в секрет DOCKER_PASSWORD_LOCAL в GitHub. -ім'я вашого користувача для визначення робочої папки користувача під яким ви використовуєте docker.
+
+Для його запуску виконайте ./gitLocal-DH/registryme/start-setting.sh
+або просто ./start-setting.sh в папці registryme
+
 Заходимо в папку з проектом cd gitLocal-DH
 Запускаємо docker compose up
 
