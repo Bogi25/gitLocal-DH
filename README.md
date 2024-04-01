@@ -43,7 +43,11 @@ docker compose up
 Automatic push to Registry added through Git Runner.
 
 ### Setting registry
-Add the Git Runner in GitHub Settings > Actions > Runners > new self-hosted runner with the standard instructions and run.
+Add the Git Runner in GitHub Settings > Actions > Runners > new self-hosted runner with the standard instructions and run:
+
+```sh
+./run.sh
+```
 
 In the project, a single Docker image is built, so prepare a repository on the local Registry:
 
