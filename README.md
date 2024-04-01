@@ -131,7 +131,7 @@ Also, to view all pushed commits, use the command:
 <summary>Also, the command to log in is:</summary>
 
 ```sh
-docker login registry.lockal:5000
+docker login registry.local:5000
 ```
 </details>
 
