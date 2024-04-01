@@ -11,7 +11,7 @@
     - [Setting registry](#setting-registry)
 - [Registrymy](Registrymy)
     - [Installation registrymy](#installation-registrymy)
-    - [That's what this bash script does](#that's-what-this-bash-script-does)
+    - [Description of the bash script](#description-of-the-bash-script)
     - [Launch of the project](#launch-of-the-project)
     - [Check](#check)
 - [Push to the Registry auto](#push-to-the-registry-auto)
@@ -55,7 +55,7 @@ _<DOCKER_USERNAME_LOCAL>/php-composer_
 
 This is implemented using the project <strong>[registryme](https://github.com/Bogi25/registryme).</strong> The project is added as a submodule in the registrymy folder.
 
-## [Registrymy](https://github.com/Bogi25/registryme)</summary>
+## Registrymy
 <details open> <summary> Detailed description</summary>
 
 ### Installation registrymy
@@ -64,7 +64,8 @@ Run a bash script in the folder with the project start-setting.sh :
 cd registryme
 ./start-setting.sh 
 ```
-### That's what this bash script does:
+### Description of the bash script
+That's what this bash script does:
 
 <table>
 <tr>
