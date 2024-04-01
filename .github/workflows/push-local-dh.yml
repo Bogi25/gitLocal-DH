@@ -19,32 +19,18 @@ jobs:
       id: prep
       run: echo "UNIQUE_TAG=$(date +%s)" >> $GITHUB_ENV
 
-    - name: Log in to Registry PHP-one
+    - name: Log in to Registry php-composer
       uses: docker/login-action@v1
       with:
         registry: registry.local:5000
         username: ${{ secrets.DOCKER_USERNAME_LOCAL }}
         password: ${{ secrets.DOCKER_PASSWORD_LOCAL }}
         
-    - name: Log in to Registry Node-t
-      uses: docker/login-action@v1
-      with:
-         registry: registry.local:5100
-         username: ${{ secrets.DOCKER_USERNAME_LOCAL }}
-         password: ${{ secrets.DOCKER_PASSWORD_LOCAL }}
 
-    - name: Build the laravel-dock-php-one
+    - name: Build the php-composer
       run: 
-        docker build -t registry.local:5000/laravel-dock-php-one:${{ env.UNIQUE_TAG }} .
+        docker build -t registry.local:5000/php-composer:${{ env.UNIQUE_TAG }} .
     
-    - name: Push the laravel-dock-php-one
+    - name: Push the php-composer
       run: 
-        docker push registry.local:5000/laravel-dock-php-one:${{ env.UNIQUE_TAG }}
-
-    - name: Build the laravel-dock-node-t
-      run: 
-        docker build -t registry.local:5100/laravel-dock-node-t:${{ env.UNIQUE_TAG }} .
-    
-    - name: Push the laravel-dock-node-t
-      run: 
-        docker push registry.local:5100/laravel-dock-node-t:${{ env.UNIQUE_TAG }}
+        docker push registry.local:5000/php-composer:${{ env.UNIQUE_TAG }}
